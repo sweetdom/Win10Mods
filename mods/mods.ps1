@@ -36,9 +36,11 @@ if((Read-Host "Set folder view options(y/n)") -ilike "y*"){
     Set-ItemProperty "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "HideDrivesWithNoMedia" -value 0 -Verbose
 }
 
-if((Read-Host -Prompt "Set default explorer view to {This PC}(y/n)") -ilike "y*"){
-    Set-ItemProperty "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "LaunchTo" -Value 0 -Verbose
-}
+#Need to fix this it causes an error from the task bar
+#if((Read-Host -Prompt "Set default explorer view to {This PC}(y/n)") -ilike "y*"){
+#    Set-ItemProperty "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "LaunchTo" -Value 0 -Verbose
+#}
+
 
 if((Read-Host -Prompt "Disable login screen background image(y/n)") -ilike "y*"){
     Write-Host "The following entry will be created in the registry HKLM:\Software\Policies\Microsoft\Windows\System" -ForegroundColor Cyan
