@@ -1,5 +1,6 @@
 ﻿Clear-Host
-
+$oldExecutionPolicy = Get-ExecutionPolicy
+Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Verbose
 $banner = @"
 ###############################################################################################################
 #                        +-+-+-+-+-+-+-+ +-+-+ +-+-+-+-+-+-+-+ +-+-+-+-+-+-+                                  #
@@ -134,5 +135,9 @@ if((Read-Host -Prompt "Run the Windows mods part of the script(y/n)") -ilike "y*
     & "$PSScriptRoot\mods\mods.ps1"
 }
 
+Set-ExecutionPolicy -ExecutionPolicy $oldExecutionPolicy -Force -Verbose
+Write-Host "You must Reboot your computer"
 
+if((Read-Host -Prompt "Reboot your computer(y/n)") -ilike "y*"){
 Restart-Computer -Force
+}
