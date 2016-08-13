@@ -1,7 +1,4 @@
-﻿if(!(Test-Path $PSScriptRoot\hosts)){
-    Write-Error "files not found script broken"
-    exit
-}
+
 
 Write-Host "Disabling telemetry via Group Policies" -ForegroundColor Yellow
 mkdir "HKLM:\SOFTWARE\Policies\Microsoft\Windows\DataCollection" -Verbose -Force
